@@ -1,0 +1,33 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [{
+            "name": "client",
+            "image": "ktoni/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "ktoni/multi-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "ktoni/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+        {
+            "name": "nginx",
+            "image": "ktoni/multi-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [{
+                "hostPort": 80,
+                "containerPort": 80
+            }],
+            "links": ["client", "server"]
+        }
+    ]
+}
