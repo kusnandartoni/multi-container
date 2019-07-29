@@ -16,7 +16,7 @@ after_success:
   #LOGIN to Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #Take those images and push it to docker hub
-  - docker push ktoni/milti-client
-  - docker push ktoni/milti-nginx
-  - docker push ktoni/milti-server
-  - docker push ktoni/milti-worker
+  - docker push ktoni/multi-client
+  - docker push ktoni/multi-nginx
+  - docker push ktoni/multi-server
+  - docker push ktoni/multi-worker
